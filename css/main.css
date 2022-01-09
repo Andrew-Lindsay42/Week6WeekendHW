@@ -1,0 +1,23 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+  }
+
+#form_div {
+    display: flex;
+    justify-content: center;
+}
+
+#form {
+    background-color: lightblue;
+    display: flexbox;
+    justify-content: space-around;
+    text-align: center;
+    padding: 1%;
+    width: 200px;
+}
+
+#hero_list {
+    list-style-type: none;
+}
