@@ -6,20 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 const handleFormSubmit = function (event){
-    
-    if (event['submitter']['id'] === 'submit_hero'){
-        event.preventDefault();
 
-        const heroInfo = document.createTextNode(`Name: ${this['hero_name']['value']}, Secret Identity: ${this['secret_identity']['value']}, Species: ${this['species']['value']}`);
+    event.preventDefault();
+    const heroList = document.getElementById('hero_list');
+    let publisher = document.querySelector('input[name="publisher"]:checked')
+
+    if (publisher) {
+        publisher = publisher.value;
+    } else {
+        publisher = 'Other';
+    };
+
+    if (event['submitter']['id'] === 'submit_hero'){
+        const heroInfo = document.createTextNode(`Name: ${this['hero_name']['value']}, Secret Identity: ${this['secret_identity']['value']}, Species: ${this['species']['value']}, Publisher: ${publisher}`);
         const newItem = document.createElement('LI');
 
         newItem.appendChild(heroInfo);
-        document.getElementById('hero_list').appendChild(newItem);
-        this.reset();
+        heroList.appendChild(newItem);
     } else {
-        event.preventDefault();
-        this.reset();
-
-        document.getElementById('hero_list').innerHTML = '';
+        heroList.innerHTML = '';
     };
+
+    this.reset();
 };
